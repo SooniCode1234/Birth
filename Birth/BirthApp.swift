@@ -11,7 +11,7 @@ import SwiftUI
 struct BirthApp: App {
     var body: some Scene {
         WindowGroup {
-            StartAssesmentScreen()
+            StartAssessmentScreen()
         }
     }
 }
