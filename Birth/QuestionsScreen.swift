@@ -68,7 +68,8 @@ struct QuestionsScreen: View {
                 }
             }
             .fullScreenCover(isPresented: $showResultsScreen) {
-                Text("Results")
+                ResultsScreen()
+                    .environmentObject(model)
             }
         }
     }

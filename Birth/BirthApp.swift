@@ -13,7 +13,7 @@ struct BirthApp: App {
 
     var body: some Scene {
         WindowGroup {
-            QuestionsScreen()
+            StartAssessmentScreen()
                 .environmentObject(model)
         }
     }

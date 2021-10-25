@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD5D7B422727371800E55988 /* ResultsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5D7B412727371800E55988 /* ResultsScreen.swift */; };
 		CD7FC18127260F830056C62C /* DIOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7FC18027260F830056C62C /* DIOptionButton.swift */; };
 		CD7FC1832726CACC0056C62C /* CheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7FC1822726CACC0056C62C /* CheckboxView.swift */; };
 		CDB0BD762725A5F100901E7D /* BirthApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB0BD752725A5F100901E7D /* BirthApp.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CD5D7B412727371800E55988 /* ResultsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsScreen.swift; sourceTree = "<group>"; };
 		CD7FC18027260F830056C62C /* DIOptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIOptionButton.swift; sourceTree = "<group>"; };
 		CD7FC1822726CACC0056C62C /* CheckboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxView.swift; sourceTree = "<group>"; };
 		CDB0BD722725A5F100901E7D /* Birth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Birth.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +72,7 @@
 				CDB0BD752725A5F100901E7D /* BirthApp.swift */,
 				CDB0BD852725B70800901E7D /* StartAssessmentScreen.swift */,
 				CDB0BD8F2725F13900901E7D /* QuestionsScreen.swift */,
+				CD5D7B412727371800E55988 /* ResultsScreen.swift */,
 				CDB0BD892725D22800901E7D /* RoundedCorners.swift */,
 				CDB0BD872725C35000901E7D /* BIButton.swift */,
 				CD7FC1822726CACC0056C62C /* CheckboxView.swift */,
@@ -164,6 +167,7 @@
 			files = (
 				CD7FC1832726CACC0056C62C /* CheckboxView.swift in Sources */,
 				CDB0BD8C2725EEA800901E7D /* Question.swift in Sources */,
+				CD5D7B422727371800E55988 /* ResultsScreen.swift in Sources */,
 				CD7FC18127260F830056C62C /* DIOptionButton.swift in Sources */,
 				CDB0BD8A2725D22800901E7D /* RoundedCorners.swift in Sources */,
 				CDB0BD862725B70800901E7D /* StartAssessmentScreen.swift in Sources */,

@@ -18,13 +18,11 @@ struct StartAssessmentScreen: View {
             Color(#colorLiteral(red: 0.0117647061124444, green: 0.01568627543747425, blue: 0.3686274588108063, alpha: 1))
                 .ignoresSafeArea()
             
-            VStack {
+            VStack(spacing: 60) {
                 Image("happy-emoji")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 350.0)
-                
-                Spacer()
                 
                 VStack {
                     VStack(alignment: .leading, spacing: 16.0) {
@@ -51,8 +49,6 @@ struct StartAssessmentScreen: View {
                 .background(Color.white)
                 .customCornerRadius(30, corners: [.topLeft, .topRight])
                 .ignoresSafeArea(edges: .bottom)
-
-                .padding(.top, 60)
             }
             .padding(.top, 20)
         }
