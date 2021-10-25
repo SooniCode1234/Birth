@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD7FC18127260F830056C62C /* DIOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7FC18027260F830056C62C /* DIOptionButton.swift */; };
+		CD7FC1832726CACC0056C62C /* CheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7FC1822726CACC0056C62C /* CheckboxView.swift */; };
 		CDB0BD762725A5F100901E7D /* BirthApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB0BD752725A5F100901E7D /* BirthApp.swift */; };
 		CDB0BD7A2725A5F300901E7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDB0BD792725A5F300901E7D /* Assets.xcassets */; };
 		CDB0BD7D2725A5F300901E7D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDB0BD7C2725A5F300901E7D /* Preview Assets.xcassets */; };
@@ -14,9 +16,14 @@
 		CDB0BD862725B70800901E7D /* StartAssessmentScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB0BD852725B70800901E7D /* StartAssessmentScreen.swift */; };
 		CDB0BD882725C35000901E7D /* BIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB0BD872725C35000901E7D /* BIButton.swift */; };
 		CDB0BD8A2725D22800901E7D /* RoundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB0BD892725D22800901E7D /* RoundedCorners.swift */; };
+		CDB0BD8C2725EEA800901E7D /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB0BD8B2725EEA800901E7D /* Question.swift */; };
+		CDB0BD8E2725F06000901E7D /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB0BD8D2725F06000901E7D /* ViewModel.swift */; };
+		CDB0BD902725F13900901E7D /* QuestionsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB0BD8F2725F13900901E7D /* QuestionsScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CD7FC18027260F830056C62C /* DIOptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIOptionButton.swift; sourceTree = "<group>"; };
+		CD7FC1822726CACC0056C62C /* CheckboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxView.swift; sourceTree = "<group>"; };
 		CDB0BD722725A5F100901E7D /* Birth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Birth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDB0BD752725A5F100901E7D /* BirthApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthApp.swift; sourceTree = "<group>"; };
 		CDB0BD792725A5F300901E7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -25,6 +32,9 @@
 		CDB0BD852725B70800901E7D /* StartAssessmentScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartAssessmentScreen.swift; sourceTree = "<group>"; };
 		CDB0BD872725C35000901E7D /* BIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BIButton.swift; sourceTree = "<group>"; };
 		CDB0BD892725D22800901E7D /* RoundedCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorners.swift; sourceTree = "<group>"; };
+		CDB0BD8B2725EEA800901E7D /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		CDB0BD8D2725F06000901E7D /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		CDB0BD8F2725F13900901E7D /* QuestionsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,8 +69,13 @@
 			children = (
 				CDB0BD752725A5F100901E7D /* BirthApp.swift */,
 				CDB0BD852725B70800901E7D /* StartAssessmentScreen.swift */,
+				CDB0BD8F2725F13900901E7D /* QuestionsScreen.swift */,
 				CDB0BD892725D22800901E7D /* RoundedCorners.swift */,
 				CDB0BD872725C35000901E7D /* BIButton.swift */,
+				CD7FC1822726CACC0056C62C /* CheckboxView.swift */,
+				CD7FC18027260F830056C62C /* DIOptionButton.swift */,
+				CDB0BD8B2725EEA800901E7D /* Question.swift */,
+				CDB0BD8D2725F06000901E7D /* ViewModel.swift */,
 				CDB0BD792725A5F300901E7D /* Assets.xcassets */,
 				CDB0BD832725A9F100901E7D /* LaunchScreen.storyboard */,
 				CDB0BD7B2725A5F300901E7D /* Preview Content */,
@@ -147,9 +162,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD7FC1832726CACC0056C62C /* CheckboxView.swift in Sources */,
+				CDB0BD8C2725EEA800901E7D /* Question.swift in Sources */,
+				CD7FC18127260F830056C62C /* DIOptionButton.swift in Sources */,
 				CDB0BD8A2725D22800901E7D /* RoundedCorners.swift in Sources */,
 				CDB0BD862725B70800901E7D /* StartAssessmentScreen.swift in Sources */,
 				CDB0BD762725A5F100901E7D /* BirthApp.swift in Sources */,
+				CDB0BD902725F13900901E7D /* QuestionsScreen.swift in Sources */,
+				CDB0BD8E2725F06000901E7D /* ViewModel.swift in Sources */,
 				CDB0BD882725C35000901E7D /* BIButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

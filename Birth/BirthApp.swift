@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct BirthApp: App {
+    @StateObject private var model = ViewModel()
+
     var body: some Scene {
         WindowGroup {
-            StartAssessmentScreen()
+            QuestionsScreen()
+                .environmentObject(model)
         }
     }
 }

@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct StartAssessmentScreen: View {
+    
+    @State private var showQuestionsView = false
+    
+    @EnvironmentObject private var model: ViewModel
+    
     var body: some View {
         ZStack {
             Color(#colorLiteral(red: 0.0117647061124444, green: 0.01568627543747425, blue: 0.3686274588108063, alpha: 1))
@@ -36,7 +41,7 @@ struct StartAssessmentScreen: View {
                     Spacer()
                     
                     BIButton("Start Assessment") {
-            
+                        showQuestionsView = true
                     }
                     .padding(20)
                     .padding(.bottom, 40)
@@ -44,12 +49,16 @@ struct StartAssessmentScreen: View {
                 .frame(maxWidth: .infinity)
                 .padding(.top, 20)
                 .background(Color.white)
-                .cornerRadius(30, corners: [.topLeft, .topRight])
+                .customCornerRadius(30, corners: [.topLeft, .topRight])
                 .ignoresSafeArea(edges: .bottom)
 
                 .padding(.top, 60)
             }
             .padding(.top, 20)
+        }
+        .fullScreenCover(isPresented: $showQuestionsView) {
+            QuestionsScreen()
+                .environmentObject(model)
         }
     }
 }

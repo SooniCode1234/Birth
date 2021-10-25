@@ -23,12 +23,12 @@ struct RoundedCorners_Previews: PreviewProvider {
         RoundedCorners(radius: 30, corners: [.topLeft, .topRight])
             .padding(.top, 90)
             .ignoresSafeArea(edges: .bottom)
-            .cornerRadius(30, corners: [.topLeft, .topRight])
+            .customCornerRadius(30, corners: [.topLeft, .topRight])
     }
 }
 
 extension View {
-    func `cornerRadius`(_ radius: CGFloat, corners: UIRectCorner = .allCorners) -> some View {
+    func customCornerRadius(_ radius: CGFloat, corners: UIRectCorner = .allCorners) -> some View {
         clipShape(RoundedCorners(radius: radius, corners: corners))
     }
 }
