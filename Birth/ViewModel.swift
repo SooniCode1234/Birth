@@ -18,7 +18,7 @@ import Foundation
  */
 
 final class ViewModel: ObservableObject {
-    @Published var selectedOptions: [UUID: Option?] = [:]
+    @Published var selectedOptions: [Option?] = []
     @Published var completedQuestions: [Question] = []
     @Published var questionBank: [Question] = [
         .init(title: "I have been able to laugh and see the funny side of things",
@@ -82,4 +82,16 @@ final class ViewModel: ObservableObject {
                         Option(title: "Yes, quite often", value: 3)])
     ]
 
+    
+    func getApproximateDiagnosis() -> String {
+        // Got getting the sum from https://stackoverflow.com/questions/24795130/finding-sum-of-elements-in-swift-array
+        var scoreValues = selectedOptions.compactMap { $0?.value }
+        var scoreSum    = scoreValues.reduce(.zero, +)
+        
+        print("🥼 The diagnosis levels is \(scoreValues) and sum is \(scoreSum)")
+        
+        
+        
+        return scoreSum.description
+    }
 }

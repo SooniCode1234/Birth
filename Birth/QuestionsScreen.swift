@@ -98,7 +98,7 @@ struct QuestionsScreen: View {
     }
     
     func scale(for question: Question) -> CGFloat {
-        var scale: CGFloat = 0
+        var scale: CGFloat = 0.001
         
         guard let index = model.questionBank.firstIndex(where: { $0.id == question.id }) else {
             return scale
@@ -156,11 +156,11 @@ struct QuestionCardView: View {
                 ForEach(question.options) { option in
                     DIOptionButton(option.title) {
                         print("✅ The selected option is \(option.title) for the question \(question.title)")
-                        model.selectedOptions[question.id] = option
+                        model.selectedOptions.append(option)
                         print("✅ The model.selectedOption has \(model.selectedOptions.count) elements which are \(model.selectedOptions)")
-                        
+
                         model.completedQuestions.append(question)
-                        
+
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                             withAnimation(.easeInOut) {
                                 model.questionBank.removeAll(where: { $0.id == question.id })
