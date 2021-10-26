@@ -55,7 +55,7 @@ struct ResultsScreen: View {
                             .bold()
                             .foregroundColor(Color(#colorLiteral(red: 0.01, green: 0.02, blue: 0.37, alpha: 1)))
                         
-                        Text("Diagnostic assessment and treatment by Primary Care Physician and/or specialist.")
+                        Text(model.getPlanOfAction())
                             .font(.callout)
                             .foregroundColor(Color(#colorLiteral(red: 0.01, green: 0.02, blue: 0.37, alpha: 0.7)))
                     }

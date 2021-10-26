@@ -85,13 +85,50 @@ final class ViewModel: ObservableObject {
     
     func getApproximateDiagnosis() -> String {
         // Got getting the sum from https://stackoverflow.com/questions/24795130/finding-sum-of-elements-in-swift-array
-        var scoreValues = selectedOptions.compactMap { $0?.value }
-        var scoreSum    = scoreValues.reduce(.zero, +)
+        let scoreValues  = selectedOptions.compactMap { $0?.value }
+        let scoreSum     = scoreValues.reduce(.zero, +)
+        var diagnosis    = ""
         
         print("🥼 The diagnosis levels is \(scoreValues) and sum is \(scoreSum)")
+
+        guard let lastScore = scoreValues.last, lastScore <= 0 else {
+            return "Thoughts of Self-Harm"
+        }
         
+        if scoreSum <= 8 {
+            diagnosis = "Depression not likely"
+        } else if scoreSum >= 9 && scoreSum <= 11 {
+            diagnosis = "Depression possible"
+        } else if scoreSum >= 12 && scoreSum <= 13 {
+            diagnosis = "Depression highly possible"
+        } else {
+            diagnosis = "Probable depression"
+        }
         
+        return diagnosis
+    }
+    
+    
+    func getPlanOfAction() -> String {
+        // Got getting the sum from https://stackoverflow.com/questions/24795130/finding-sum-of-elements-in-swift-array
+        let scoreValues  = selectedOptions.compactMap { $0?.value }
+        let scoreSum     = scoreValues.reduce(.zero, +)
+        var diagnosis    = ""
+                
+        guard let lastScore = scoreValues.last, lastScore <= 0 else {
+            return "Immediate discussion required with a Primary Care Physician and/or mental health specialist."
+        }
         
-        return scoreSum.description
+        if scoreSum <= 8 {
+            diagnosis = "Continue support."
+        } else if scoreSum >= 9 && scoreSum <= 11 {
+            diagnosis = "Retake the questionnaire and consider going to your local Primary Care Physician."
+        } else if scoreSum >= 12 && scoreSum <= 13 {
+            diagnosis = "Keep assessing and logging how you're feeling each day, go to a counsellor and learn more about depression."
+        } else {
+            diagnosis = "Go to your Primary Care Physician to get a formal / professional assessment and see if treatment is required."
+        }
+        
+        return diagnosis
     }
 }
