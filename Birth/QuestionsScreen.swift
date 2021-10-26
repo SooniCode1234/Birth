@@ -11,6 +11,7 @@ struct QuestionsScreen: View {
     
     @EnvironmentObject private var model: ViewModel
     @State private var showResultsScreen = false
+    @State private var progress: CGFloat = 0
     
     var body: some View {
         ZStack {
@@ -18,33 +19,31 @@ struct QuestionsScreen: View {
                 .ignoresSafeArea()
             
             VStack(spacing: 44) {
-                Button(action: {}) {
-                    Image(systemName: "chevron.left")
-                        .font(.headline)
-//                        .frame(width: 30, height: 30)
-                }
-                .tint(.accentColor)
-                .buttonStyle(.bordered)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                
                 VStack(alignment: .leading, spacing: 16.0) {
-                    Text("Question 1 / 9")
+                    Text("Question \(model.completedQuestions.count) / 10")
                         .font(.title3)
                         .foregroundColor(Color(.white).opacity(0.7))
                     
-                    RoundedRectangle(cornerRadius: 8, style: .continuous)
-                        .fill(Color(red: 0.008, green: 0.14, blue: 0.453))
-                        .frame(height: 24)
-                        .overlay(alignment: .leading) {
+
+                    // Logic for progress bar width https://www.simpleswiftguide.com/how-to-build-linear-progress-bar-in-swiftui/
+                    GeometryReader { reader in
+                        ZStack(alignment: .leading) {
+                            RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                .fill(Color(red: 0.008, green: 0.14, blue: 0.453))
+                                .frame(width: reader.size.width, height: 24)
+                            
                             RoundedRectangle(cornerRadius: 8, style: .continuous)
                                 .fill(Color.accentColor)
-                                .frame(width: 11 * (350 / 100))
+                                .frame(width: min(progress * reader.size.width, reader.size.width), height: 24)
+                                .animation(.linear, value: progress)
                         }
+                    }
+                    .frame(height: 24)
                 }
                 
                 ZStack(alignment: .top) {
                     ForEach(model.questionBank) { question in
-                        QuestionCardView(question: question)
+                        QuestionCardView(question: question, progress: $progress)
                             .zIndex(isTopCard(for: question) ? 1 : 0)
                             .offset(y: isTopCard(for: question) ? 0 : getOffset(for: question))
                             .opacity(isTopCard(for: question) ? 1 : 0.2)
@@ -137,6 +136,7 @@ struct QuestionsScreen_Previews: PreviewProvider {
 struct QuestionCardView: View {
     
     let question: Question
+    @Binding var progress: CGFloat
     @EnvironmentObject private var model: ViewModel
     
     var body: some View {
@@ -160,7 +160,8 @@ struct QuestionCardView: View {
                         print("✅ The model.selectedOption has \(model.selectedOptions.count) elements which are \(model.selectedOptions)")
 
                         model.completedQuestions.append(question)
-
+                        progress += (1/10)
+                        
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                             withAnimation(.easeInOut) {
                                 model.questionBank.removeAll(where: { $0.id == question.id })
