@@ -7,13 +7,14 @@
 
 import Foundation
 
+/// Structure to represent a Question
 struct Question: Identifiable, Equatable {
     let id = UUID()
     let title: String
     let options: [Option]
-    var selectedOption: Option? = nil
 }
 
+/// Structure to represent a Option
 struct Option: Identifiable, Equatable {
     let id = UUID()
     let title: String

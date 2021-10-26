@@ -21,6 +21,7 @@
 		CDB0BD8E2725F06000901E7D /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB0BD8D2725F06000901E7D /* ViewModel.swift */; };
 		CDB0BD902725F13900901E7D /* QuestionsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB0BD8F2725F13900901E7D /* QuestionsScreen.swift */; };
 		CDC99C6927287ED300D04B40 /* BlobShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC99C6827287ED300D04B40 /* BlobShape.swift */; };
+		CDC99C6B2728A0F200D04B40 /* QuestionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC99C6A2728A0F200D04B40 /* QuestionCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		CDB0BD8D2725F06000901E7D /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		CDB0BD8F2725F13900901E7D /* QuestionsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsScreen.swift; sourceTree = "<group>"; };
 		CDC99C6827287ED300D04B40 /* BlobShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlobShape.swift; sourceTree = "<group>"; };
+		CDC99C6A2728A0F200D04B40 /* QuestionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,13 +77,9 @@
 				CDB0BD852725B70800901E7D /* StartAssessmentScreen.swift */,
 				CDB0BD8F2725F13900901E7D /* QuestionsScreen.swift */,
 				CD5D7B412727371800E55988 /* ResultsScreen.swift */,
-				CDB0BD892725D22800901E7D /* RoundedCorners.swift */,
-				CDC99C6827287ED300D04B40 /* BlobShape.swift */,
-				CDB0BD872725C35000901E7D /* BIButton.swift */,
-				CD7FC1822726CACC0056C62C /* CheckboxView.swift */,
-				CD7FC18027260F830056C62C /* DIOptionButton.swift */,
 				CDB0BD8B2725EEA800901E7D /* Question.swift */,
 				CDB0BD8D2725F06000901E7D /* ViewModel.swift */,
+				CDC99C6C2728A9E600D04B40 /* Components */,
 				CDB0BD792725A5F300901E7D /* Assets.xcassets */,
 				CDB0BD832725A9F100901E7D /* LaunchScreen.storyboard */,
 				CDB0BD7B2725A5F300901E7D /* Preview Content */,
@@ -95,6 +93,19 @@
 				CDB0BD7C2725A5F300901E7D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CDC99C6C2728A9E600D04B40 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				CDC99C6A2728A0F200D04B40 /* QuestionCardView.swift */,
+				CDB0BD892725D22800901E7D /* RoundedCorners.swift */,
+				CDC99C6827287ED300D04B40 /* BlobShape.swift */,
+				CDB0BD872725C35000901E7D /* BIButton.swift */,
+				CD7FC1822726CACC0056C62C /* CheckboxView.swift */,
+				CD7FC18027260F830056C62C /* DIOptionButton.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,6 +181,7 @@
 			files = (
 				CD7FC1832726CACC0056C62C /* CheckboxView.swift in Sources */,
 				CDB0BD8C2725EEA800901E7D /* Question.swift in Sources */,
+				CDC99C6B2728A0F200D04B40 /* QuestionCardView.swift in Sources */,
 				CD5D7B422727371800E55988 /* ResultsScreen.swift in Sources */,
 				CD7FC18127260F830056C62C /* DIOptionButton.swift in Sources */,
 				CDB0BD8A2725D22800901E7D /* RoundedCorners.swift in Sources */,

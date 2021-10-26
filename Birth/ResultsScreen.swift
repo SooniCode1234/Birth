@@ -7,17 +7,21 @@
 
 import SwiftUI
 
+/// Screen that shows the user their results
 struct ResultsScreen: View {
     
+    /// Reading the ViewModel as a EnvironmentObject in the entire App
     @EnvironmentObject private var model: ViewModel
-   
+    /// State variable that controls whether or not to show the questions again based on the button being tapped
     @State private var showQuestionsScreen = false
     
     var body: some View {
         ZStack {
+            // Background Color
             Color(#colorLiteral(red: 0.0117647061124444, green: 0.01568627543747425, blue: 0.3686274588108063, alpha: 1))
                 .ignoresSafeArea()
             
+            // Main Content Stack
             VStack(spacing: 60) {
                 Image("result-success")
                     .resizable()
@@ -25,6 +29,7 @@ struct ResultsScreen: View {
                     .frame(width: 350.0)
 
                 VStack(spacing: 24) {
+                    // Header and text and summary
                     VStack(alignment: .leading, spacing: 12.0) {
                         Text("Results")
                             .font(.title)
@@ -36,8 +41,8 @@ struct ResultsScreen: View {
                             .foregroundColor(Color(#colorLiteral(red: 0.01, green: 0.02, blue: 0.37, alpha: 0.7)))
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .layoutPriority(3)
 
+                    // Approximate diagnosis
                     Text(model.getApproximateDiagnosis())
                         .font(.headline)
                         .foregroundColor(.accentColor)
@@ -49,6 +54,7 @@ struct ResultsScreen: View {
                                 .stroke(Color.accentColor)
                         }
 
+                    // Action sub-header and descriptive text on where to go from here
                     VStack(alignment: .leading, spacing: 12.0) {
                         Text("Action")
                             .font(.title3)
@@ -64,7 +70,10 @@ struct ResultsScreen: View {
                     
                     Spacer()
                     
+                    // Button in case the user wants to redo the test
                     BIButton("Redo Assessment") {
+                        // Resetting model properties
+                        model.selectedOptions    = []
                         model.completedQuestions = []
                         model.questionBank       = [
                             .init(title: "I have been able to laugh and see the funny side of things",
@@ -136,8 +145,10 @@ struct ResultsScreen: View {
                 .background(Color.white)
                 .customCornerRadius(30, corners: [.topLeft, .topRight])
                 .ignoresSafeArea(edges: .bottom)
+                // Showing the Question Screen as a Popup
                 .fullScreenCover(isPresented: $showQuestionsScreen) {
                     QuestionsScreen()
+                    // Injecting the ViewModel as a EnvironmentObject to the Questions Screen
                         .environmentObject(model)
                 }
             }

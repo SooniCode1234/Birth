@@ -14,6 +14,7 @@ struct BirthApp: App {
     var body: some Scene {
         WindowGroup {
             StartAssessmentScreen()
+            // Injecting the ViewModel as a EnvironmentObject in the entire App
                 .environmentObject(model)
         }
     }

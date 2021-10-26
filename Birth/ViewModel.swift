@@ -7,19 +7,13 @@
 
 import Foundation
 
-/*
- - Holds a array of questions [x]
- - A variable that tracks the selected option of each question
-     - Starts out as having 9 nil values [x]
-     - Every time the user selects a option from a specific question, map out the selected option from the questtion and add it to the array
-     - If the user goes back and changes their answer, update that index
- - At the end, tally up all the selections's value
- - Display correct info
- */
-
+/// Controls the App logic
 final class ViewModel: ObservableObject {
+    /// Tracks the selections of the user
     @Published var selectedOptions: [Option?] = []
+    /// Tracks the completed questions answered by the user
     @Published var completedQuestions: [Question] = []
+    /// Holds the questions
     @Published var questionBank: [Question] = [
         .init(title: "I have been able to laugh and see the funny side of things",
               options: [Option(title: "As much as I always could", value: 0),
@@ -83,14 +77,15 @@ final class ViewModel: ObservableObject {
     ]
 
     
+    /// Function to get the diagnosis based on the sum of the selectedOption values
+    /// - Returns: A String diagnosis
     func getApproximateDiagnosis() -> String {
         // Got getting the sum from https://stackoverflow.com/questions/24795130/finding-sum-of-elements-in-swift-array
         let scoreValues  = selectedOptions.compactMap { $0?.value }
         let scoreSum     = scoreValues.reduce(.zero, +)
         var diagnosis    = ""
         
-        print("🥼 The diagnosis levels is \(scoreValues) and sum is \(scoreSum)")
-
+        // Making sure the self-harm question is below 0, otherwise escape the function
         guard let lastScore = scoreValues.last, lastScore <= 0 else {
             return "Thoughts of Self-Harm"
         }
@@ -108,13 +103,15 @@ final class ViewModel: ObservableObject {
         return diagnosis
     }
     
-    
+    /// Function summarizes what the user should do next based on the sum of the selectedOption values
+    /// - Returns: A String of some plan of action
     func getPlanOfAction() -> String {
         // Got getting the sum from https://stackoverflow.com/questions/24795130/finding-sum-of-elements-in-swift-array
         let scoreValues  = selectedOptions.compactMap { $0?.value }
         let scoreSum     = scoreValues.reduce(.zero, +)
         var diagnosis    = ""
-                
+        
+        // Making sure the self-harm question is below 0, otherwise escape the function
         guard let lastScore = scoreValues.last, lastScore <= 0 else {
             return "Immediate discussion required with a Primary Care Physician and/or mental health specialist."
         }
