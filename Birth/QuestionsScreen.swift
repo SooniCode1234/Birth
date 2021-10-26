@@ -12,18 +12,54 @@ struct QuestionsScreen: View {
     @EnvironmentObject private var model: ViewModel
     @State private var showResultsScreen = false
     @State private var progress: CGFloat = 0
+    @State private var animateBlobs = false
     
     var body: some View {
         ZStack {
             Color(#colorLiteral(red: 0.0117647061124444, green: 0.01568627543747425, blue: 0.3686274588108063, alpha: 1))
                 .ignoresSafeArea()
+
+            ZStack {
+                BlobShape()
+                    .fill(LinearGradient(
+                        gradient: Gradient(stops: [
+                    .init(color: Color(#colorLiteral(red: 0.0470588244497776, green: 0.23137255012989044, blue: 0.6666666865348816, alpha: 1)), location: 0),
+                    .init(color: Color(#colorLiteral(red: 0.0235294122248888, green: 0.09803921729326248, blue: 0.5764706134796143, alpha: 1)), location: 1)]),
+                        startPoint: UnitPoint(x: -0.0010022369043808377, y: 2.9608462903674138e-9),
+                        endPoint: UnitPoint(x: 1.00044921785963, y: 0.9989486942170716)))
+                    .blur(radius: 4)
+                    .frame(width: 124.65, height: 141)
+                    .rotationEffect(.degrees(100))
+                    .rotationEffect(.degrees(170))
+                    .rotationEffect(.degrees(animateBlobs ? 360 : 0))
+                    .offset(x: -120)
+                
+                BlobShape()
+                    .fill(LinearGradient(
+                        gradient: Gradient(stops: [
+                    .init(color: Color(#colorLiteral(red: 0.0470588244497776, green: 0.23137255012989044, blue: 0.6666666865348816, alpha: 1)), location: 0),
+                    .init(color: Color(#colorLiteral(red: 0.0235294122248888, green: 0.09803921729326248, blue: 0.5764706134796143, alpha: 1)), location: 1)]),
+                        startPoint: UnitPoint(x: -0.0010022369043808377, y: 2.9608462903674138e-9),
+                        endPoint: UnitPoint(x: 1.00044921785963, y: 0.9989486942170716)))
+                    .blur(radius: 4)
+                    .frame(width: 189.14, height: 226.933)
+                    .rotationEffect(.degrees(170))
+                    .rotationEffect(.degrees(animateBlobs ? 360 : 0))
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
+            .offset(x: 50, y: 130)
+            .ignoresSafeArea(edges: .bottom)
+            .onAppear {
+                withAnimation(.linear(duration: 12).repeatForever(autoreverses: false)) {
+                    animateBlobs = true
+                }
+            }
             
             VStack(spacing: 44) {
                 VStack(alignment: .leading, spacing: 16.0) {
                     Text("Question \(model.completedQuestions.count) / 10")
                         .font(.title3)
                         .foregroundColor(Color(.white).opacity(0.7))
-                    
 
                     // Logic for progress bar width https://www.simpleswiftguide.com/how-to-build-linear-progress-bar-in-swiftui/
                     GeometryReader { reader in
@@ -62,7 +98,7 @@ struct QuestionsScreen: View {
                 guard completedQuestions.count == 10 else { return }
                 
                 print("✅ The user is done with the survey")
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2.1) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
                     showResultsScreen = true
                 }
             }
